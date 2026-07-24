@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAJLA STAR - اتصل بنا</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar"><div class="logo">NAJLA STAR</div><nav><a href="offers.html">العروض</a><a href="services.html">خدماتنا</a><a href="booking.html">الحجز</a><button class="btn-logout" onclick="logout()">تسجيل خروج</button></nav></header>
+<div class="container">
+  <h2 class="section-title">تواصل معنا</h2>
+  <div class="contact-wrapper">
+    <form class="contact-form" onsubmit="alert('تم ارسال رسالتك بنجاح'); return false;">
+      <h3 style="color:var(--dark)">ارسل لنا رسالة</h3>
+      <input type="text" placeholder="الاسم الكامل" required>
+      <input type="tel" placeholder="رقم الواتساب" required>
+      <input type="email" placeholder="الايميل" required>
+      <textarea placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
+      <button>ارسال الرسالة</button>
+    </form>
+    <div class="contact-info">
+      <h3>بيانات التواصل</h3>
+      <p>📞 الهاتف: 0912345678</p>
+      <p>📱 واتساب: 0998765432</p>
+      <p>📧 الايميل: info@najlastar.com</p>
+      <p>📍 العنوان: الخرطوم - شارع النيل - برج السياحة الطابق 5</p>
+      <p>⏰ اوقات العمل: السبت - الخميس من 9ص الى 5م</p>
+    </div>
+  </div>
+  <div class="logout-section">
+    <button class="btn-logout-big" onclick="logout()">🚪 تسجيل الخروج</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

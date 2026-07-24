@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAJLA STAR - العروض</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">NAJLA STAR</div>
+  <nav>
+    <a href="offers.html">العروض</a>
+    <a href="services.html">خدماتنا</a>
+    <a href="booking.html">الحجز</a>
+    <a href="contact.html">اتصل بنا</a>
+    <button class="btn-logout" onclick="logout()">تسجيل خروج</button>
+  </nav>
+</header>
+<div class="container">
+  <h2 class="section-title">عروضنا الحصرية 🔥</h2>
+  <div class="offers-grid">
+    <div class="offer-card">
+      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800">
+      <div class="info">
+        <h3>القاهرة - مصر</h3>
+        <p>5 ايام 4 ليالي شامل الفندق</p>
+        <div class="price">450,000 جنيه</div>
+        <button class="btn-book-now" onclick="bookNow('القاهرة - مصر')">احجز الان</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800">
+      <div class="info">
+        <h3>دبي - الامارات</h3>
+        <p>7 ايام 6 ليالي + تاشيرة</p>
+        <div class="price">1,200,000 جنيه</div>
+        <button class="btn-book-now" onclick="bookNow('دبي - الامارات')">احجز الان</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?q=80&w=800">
+      <div class="info">
+        <h3>اسطنبول - تركيا</h3>
+        <p>8 ايام 7 ليالي شامل الطيران</p>
+        <div class="price">1,800,000 جنيه</div>
+        <button class="btn-book-now" onclick="bookNow('اسطنبول - تركيا')">احجز الان</button>
+      </div>
+    </div>
+  </div>
+  <div class="logout-section">
+    <button class="btn-logout-big" onclick="logout()">🚪 تسجيل الخروج</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
