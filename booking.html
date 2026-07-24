@@ -1,62 +1,91 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAJLA STAR - الحجز</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الحجز - NAJLA STAR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="navbar"><div class="logo">NAJLA STAR</div><nav><a href="offers.html">العروض</a><a href="services.html">خدماتنا</a><a href="contact.html">اتصل بنا</a><button class="btn-logout" onclick="logout()">تسجيل خروج</button></nav></header>
-<div class="container">
-  <h2 class="section-title">احجز رحلتك الان ✈️</h2>
-  <form class="booking-form" onsubmit="alert('تم استلام طلب الحجز بنجاح. سوف نتواصل معك خلال 24 ساعة'); return false;">
-    <div class="form-row">
-      <div class="form-group">
-        <label>الاسم الكامل</label>
-        <input type="text" placeholder="ادخل اسمك" required>
-      </div>
-      <div class="form-group">
-        <label>رقم الهاتف</label>
-        <input type="tel" placeholder="0912xxxxxx" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>الوجهة</label>
-        <select id="destinationSelect" required>
-          <option>اختر الوجهة</option>
-          <option>القاهرة - مصر</option>
-          <option>دبي - الامارات</option>
-          <option>اسطنبول - تركيا</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>عدد الاشخاص</label>
-        <input type="number" placeholder="1" min="1" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>تاريخ المغادرة</label>
-        <input type="date" required>
-      </div>
-      <div class="form-group">
-        <label>تاريخ العودة</label>
-        <input type="date" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>ملاحظات اضافية</label>
-      <textarea rows="3" placeholder="طلبات خاصة..."></textarea>
-    </div>
-    <button type="submit" class="btn-book">تاكيد الحجز</button>
-  </form>
-  <div class="logout-section">
-    <button class="btn-logout-big" onclick="logout()">🚪 تسجيل الخروج</button>
-  </div>
-</div>
-<script src="script.js"></script>
+  <header>
+    <h1>NAJLA STAR للسفر والسياحة</h1>
+    <nav>
+      <a href="offers.html">العروض</a>
+      <a href="services.html">خدماتنا</a>
+      <a href="booking.html">الحجز</a>
+      <a href="contact.html">اتصل بنا</a>
+      <button class="btn-logout" onclick="logout()">تسجيل خروج</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>نموذج الحجز</h2>
+    <form id="bookingForm">
+      
+      <label>الاسم الكامل:</label>
+      <input type="text" id="name" required>
+
+      <label>رقم الهاتف:</label>
+      <input type="tel" id="phone" required>
+
+      <label>الوجهة:</label>
+      <select id="destinationSelect" required>
+        <option value="">-- اختر الوجهة --</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="دبي">دبي</option>
+        <option value="اسطنبول">اسطنبول</option>
+        <option value="جدة">جدة</option>
+        <option value="الرياض">الرياض</option>
+      </select>
+
+      <label>تاريخ السفر:</label>
+      <input type="date" id="date" required>
+
+      <label>عدد الاشخاص:</label>
+      <input type="number" id="people" min="1" value="1" required>
+
+      <label>ملاحظات:</label>
+      <textarea id="notes" rows="3"></textarea>
+
+      <button type="submit" class="btn">تأكيد الحجز عبر واتساب</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // كود ارسال الواتساب
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      
+      let name = document.getElementById('name').value;
+      let phone = document.getElementById('phone').value;
+      let destination = document.getElementById('destinationSelect').value;
+      let date = document.getElementById('date').value;
+      let people = document.getElementById('people').value;
+      let notes = document.getElementById('notes').value;
+      
+      let message = `🔔 *حجز جديد من موقع NAJLA STAR* 🔔%0A%0A
+*الاسم:* ${name}%0A
+*الرقم:* ${phone}%0A
+*الوجهة:* ${destination}%0A
+*التاريخ:* ${date}%0A
+*عدد الاشخاص:* ${people}%0A
+*الملاحظات:* ${notes}`;
+      
+      // 👇 غيري الرقم دا لرقمك حق الواتساب. لازم يبدأ بـ 249
+      let myWhatsApp = "+249 96 128 8504"; 
+      
+      window.open(`https://wa.me/${myWhatsApp}?text=${message}`, '_blank');
+    });
+
+    // عشان يختار الوجهة الجات من زر "احجز الان"
+    window.onload = function() {
+      let dest = localStorage.getItem('selectedDestination');
+      if(dest && document.getElementById('destinationSelect')){
+        document.getElementById('destinationSelect').value = dest;
+        localStorage.removeItem('selectedDestination');
+      }
+    }
+  </script>
 </body>
 </html>
